@@ -2,16 +2,17 @@
 
 A basic example of how to use the "slots" pattern for passing React components (and JSX) via props. This type of pattern can help to write modular components for increased code re-use.
 
+Created with [create-react-app](https://github.com/facebook/create-react-app).
+
+<hr />
+
 *This repo was create to supplement a video for my [RushingLabs](https://www.youtube.com/channel/UCMbD6urmMQBUUxjjvyXgaxw) Youtube channel.*
-
-
-<div style="text-align: center">
 
 [<img src="https://meddlin-web.s3.us-east-2.amazonaws.com/video-thumbnails/1567364675166.jpg" width="720" height="405">](https://youtu.be/Nx7KZb1R_yE)
 
 [https://youtu.be/Nx7KZb1R_yE](https://youtu.be/Nx7KZb1R_yE)
 
-</div>
+<hr />
 
 ### Explanation
 
