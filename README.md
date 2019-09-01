@@ -4,9 +4,14 @@ A basic example of how to use the "slots" pattern for passing React components (
 
 *This repo was create to supplement a video for my [RushingLabs](https://www.youtube.com/channel/UCMbD6urmMQBUUxjjvyXgaxw) Youtube channel.*
 
-[<img src="https://meddlin-web.s3.us-east-2.amazonaws.com/video-thumbnails/1567364675166.jpg" width="960" height="540">](https://youtu.be/Nx7KZb1R_yE)
+
+<div style="text-align: center">
+
+[<img src="https://meddlin-web.s3.us-east-2.amazonaws.com/video-thumbnails/1567364675166.jpg" width="720" height="405">](https://youtu.be/Nx7KZb1R_yE)
 
 [https://youtu.be/Nx7KZb1R_yE](https://youtu.be/Nx7KZb1R_yE)
+
+</div>
 
 ### Explanation
 
