@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Slots Pattern
 
-## Available Scripts
+A basic example of how to use the "slots" pattern for passing React components (and JSX) via props. This type of pattern can help to write modular components for increased code re-use.
 
-In the project directory, you can run:
+*This repo was create to supplement a video for my [RushingLabs](https://www.youtube.com/channel/UCMbD6urmMQBUUxjjvyXgaxw) Youtube channel.*
 
-### `npm start`
+[<img src="https://meddlin-web.s3.us-east-2.amazonaws.com/video-thumbnails/1567364675166.jpg" width="960" height="540">](https://youtu.be/Nx7KZb1R_yE)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[https://youtu.be/Nx7KZb1R_yE](https://youtu.be/Nx7KZb1R_yE)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Explanation
 
-### `npm test`
+In the `App` component we create an instance of `<Layout />` in JSX, just as traditionally done, and declare a few props: `header`, `content`, and `sidebar`.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Only instead of supply data to these props *we are able to supply JSX directly inside of them*.
 
-### `npm run build`
+This allows us to pass any component we wish. Building a "layout" for a website is only one simple use-case for this pattern.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+import Layout from './layout/Layout';
+import Header from './components/header/Header';
+import Sidebar from './components/sidebar/Sidebar';
+import Body from './components/body/Body';
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+function App() {
+  return (
+    <div className="App">
+      <Layout header={<Header />} content={<Body />} sidebar={<Sidebar />} />
+    </div>
+  );
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Inside the `Layout` component, since it's already an instantiated React component, we can simply render the prop values in `{ }` just like any other JavaScript.
 
-### `npm run eject`
+*Note: It's highly suggested to include some type of null- or type-checking if possible in your own implementation.*
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+const Layout = ({ header, sidebar, content }) => {
+    return (
+        <div>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            {header}
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+            <div className={styles.layoutStuff}>
+                <div className={styles.bodyContainer}>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+                    {content}
 
-## Learn More
+                </div>
+                <div className={styles.sideContainer}>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+                    {sidebar} 
+                    
+                </div>
+            </div>
+        </div>
+    );
+};
+```
